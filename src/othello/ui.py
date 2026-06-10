@@ -1,5 +1,3 @@
-
-
 import pygame
 from othello.game import Game
 from othello.board import BLACK, WHITE, count_pieces
@@ -8,9 +6,9 @@ pygame.init()
 font = pygame.font.Font(None, 36)
 
 BOARD_SIZE = 8
-SQUARE_SIZE = 100
+SQUARE_SIZE = 80
 
-screen = pygame.display.set_mode((800, 900))
+screen = pygame.display.set_mode((640, 740))
 pygame.display.set_caption("Othello")
 
 game = Game()
@@ -68,13 +66,13 @@ while running:
                 screen,
                 colour,
                 (centre_x, centre_y),
-                40,
+                32,
             )
 
     pygame.draw.rect(
         screen,
         (200, 200, 200),
-        pygame.Rect(0, 800, 800, 100),
+        pygame.Rect(0, 640, 640, 100),
     )
 
     black_count, white_count = count_pieces(game.board)
@@ -91,8 +89,8 @@ while running:
         (0, 0, 0),
     )
 
-    screen.blit(turn_text, (20, 820))
-    screen.blit(score_text, (20, 855))
+    screen.blit(turn_text, (20, 660))
+    screen.blit(score_text, (20, 695))
 
     pygame.display.flip()
 
