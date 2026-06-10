@@ -21,6 +21,14 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = event.pos
+
+            row = mouse_y // SQUARE_SIZE
+            column = mouse_x // SQUARE_SIZE
+
+            print(f"Clicked: row={row}, column={column}")
+
     screen.fill((0, 128, 0))
 
     for row in range(BOARD_SIZE):
