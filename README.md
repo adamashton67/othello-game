@@ -1,10 +1,14 @@
 # Othello Game
 
-This is a Python project to build a playable version of Othello.
+## Current Version
 
-The aim of the project is for me to practise building a structured software project using Python, Git, testing, and clear commits.
+v1.0
 
-## Version 1 Goal
+This is a Python project of a playable version of the board game Othello.
+
+The aim of the project was for me to practise building a structured software project using Python, Git, testing, and clear commits.
+
+## Version 1 Features
 
 The first playable version will be a local two-player game with:
 
@@ -18,7 +22,7 @@ The first playable version will be a local two-player game with:
 - Game-over detection
 - Winner display
 
-## Future Ideas
+## Potential Future Improvements
 
 Possible future improvements include:
 
@@ -30,6 +34,24 @@ Possible future improvements include:
 - Animations
 - Sound effects
 
-## How to Run
+## Requirements
 
-Instructions will be added once the basic project is set up.
+- Python 3.13
+- Pygame 2.6.1
+
+## Running the Game
+
+### macOS
+
+Double-click:
+
+```text
+run_game.command
+```
+
+Or run from Terminal:
+
+```bash
+source .venv/bin/activate
+PYTHONPATH=src python3 src/othello/ui.py
+```
