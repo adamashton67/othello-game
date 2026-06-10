@@ -90,7 +90,22 @@ def get_valid_moves(board, player):
 
     return valid_moves
 
+def apply_move(board, row, column, player):
+    # if not a valid move
+    if not is_valid_move(board, row, column, player):
+        return False
+    # if valid move
+    flips = find_all_flips(board, row, column, player)
+
+    board[row][column] = player
+
+    for flip_row, flip_column in flips:
+        board[flip_row][flip_column] = player
+
+    return True
+
 if __name__ == "__main__":
     board = create_starting_board()
 
-    print(get_valid_moves(board, BLACK))
+    print(apply_move(board, 2, 3, BLACK))
+    print_board(board)
