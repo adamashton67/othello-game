@@ -27,7 +27,7 @@ while running:
             row = mouse_y // SQUARE_SIZE
             column = mouse_x // SQUARE_SIZE
 
-            print(f"Clicked: row={row}, column={column}")
+            game.make_move(row, column)
 
     screen.fill((0, 128, 0))
 
