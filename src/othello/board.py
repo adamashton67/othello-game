@@ -118,10 +118,3 @@ def count_pieces(board):
                 white_count += 1
 
     return black_count, white_count
-
-if __name__ == "__main__":
-    board = create_starting_board()
-
-    apply_move(board, 2, 3, BLACK)
-
-    print(count_pieces(board))

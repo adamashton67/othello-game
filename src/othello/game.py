@@ -36,6 +36,7 @@ class Game:
             and not self.player_has_moves(WHITE)
         ):
             self.game_over = True
+
     def get_winner(self):
         black_count, white_count = count_pieces(self.board)
 
@@ -47,27 +48,3 @@ class Game:
 
         else:
             return "DRAW"
-
-
-if __name__ == "__main__":
-    game = Game()
-
-    game.board = [
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "B"],
-        ["B", "B", "B", "B", "B", "B", "B", "."],
-    ]
-
-    print("Black has moves:", game.player_has_moves(BLACK))
-    print("White has moves:", game.player_has_moves(WHITE))
-    print("Game over before update:", game.game_over)
-
-    game.update_game_over()
-
-    print("Game over after update:", game.game_over)
-    print("Winner:", game.get_winner())
