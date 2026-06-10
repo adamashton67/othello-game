@@ -33,11 +33,7 @@ def is_empty_square(board, row, column):
     return board[row][column] == EMPTY
 
 def is_on_board(row, column):
-    return (
-        0 <= row < BOARD_SIZE
-        and
-        0 <= column < BOARD_SIZE
-    )
+    return (0 <= row < BOARD_SIZE and 0 <= column < BOARD_SIZE)
 
 def get_opponent(player):
     if player == BLACK:
@@ -65,18 +61,36 @@ def find_flips_in_direction(board, row, column, player, row_change, column_chang
             return []
         else:
             return []
+    return []
 
+def find_all_flips(board, row, column, player):
+    all_flips = []
+
+    for row_change, column_change in DIRECTIONS:
+        flips = find_flips_in_direction(board, row, column, player, row_change, column_change)
+        all_flips.extend(flips)
+
+    return all_flips
+
+def is_valid_move(board, row, column, player):
+    # if square is not empty
+    if not is_empty_square(board, row, column):
+        return False
+    # if square is empty
+    flips = find_all_flips(board, row, column, player)
+    return len(flips) > 0
+
+def get_valid_moves(board, player):
+    valid_moves = []
+
+    for row in range(BOARD_SIZE):
+        for column in range(BOARD_SIZE):
+            if is_valid_move(board, row, column, player):
+                valid_moves.append((row, column))
+
+    return valid_moves
 
 if __name__ == "__main__":
     board = create_starting_board()
 
-    print_board(board)
-
-    print()
-    print(is_empty_square(board, 0, 0))
-    print(is_empty_square(board, 3, 3))
-    print()
-    print(is_on_board(0, 0))
-    print(is_on_board(7, 7))
-    print(is_on_board(8, 0))
-    print(is_on_board(-1, 3))
+    print(get_valid_moves(board, BLACK))
