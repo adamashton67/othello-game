@@ -104,8 +104,24 @@ def apply_move(board, row, column, player):
 
     return True
 
+def count_pieces(board):
+    black_count = 0
+    white_count = 0
+
+    for row in board:
+        for square in row:
+
+            if square == BLACK:
+                black_count += 1
+
+            elif square == WHITE:
+                white_count += 1
+
+    return black_count, white_count
+
 if __name__ == "__main__":
     board = create_starting_board()
 
-    print(apply_move(board, 2, 3, BLACK))
-    print_board(board)
+    apply_move(board, 2, 3, BLACK)
+
+    print(count_pieces(board))
